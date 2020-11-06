@@ -1,14 +1,14 @@
 <xml xmlns="http://www.w3.org/1999/xhtml" collection="false">
   <variables>
+    <variable type="" id="W/Q70(@w9?/qgHxY|gk{">macd_list</variable>
     <variable type="" id="}stvK,r:8B)(u#=vZ]Ha">candle_start</variable>
     <variable type="" id="oZXIr?XTVUmj_0,{vu1Y">candle_current</variable>
-    <variable type="" id="W/Q70(@w9?/qgHxY|gk{">macd_list</variable>
     <variable type="" id="uoqqfS9c,]K9e|@{B#0q">stop</variable>
     <variable type="" id="%~6Kxe!f8Se5EnIOM2-w">i</variable>
     <variable type="" id="SmD.G2UZz(M-`w@=MsZ3">time_interval_minutes</variable>
-    <variable type="" id="j4P-f2oTU#h7)PE~mzjb">macd_list_length</variable>
     <variable type="" id="oTm*ll}egxlOubx^8{QX">macd_10_ticks</variable>
     <variable type="" id="gOJ5%o$NMHr=K!Uj*Hnf">negative</variable>
+    <variable type="" id="j4P-f2oTU#h7)PE~mzjb">macd_list_length</variable>
     <variable type="" id="|ZLhlWe+afdy*/`VZu3L">time_last_execute</variable>
     <variable type="" id="z+;7ngsm.%bpP/iq0$*u">macd_list_position</variable>
   </variables>
@@ -146,7 +146,27 @@
   <block type="variables_get" id="@728}8u!9(*iGg#zDovm" disabled="true" x="689" y="68">
     <field name="VAR" id="oZXIr?XTVUmj_0,{vu1Y" variabletype="">candle_current</field>
   </block>
-  <block type="tick_analysis" id="b`%Qf`EDIBcK2.zEK{jc" x="701" y="310">
+  <block type="before_purchase" id="i-CIx.(Onm4?ihxzA}Y]" x="-19" y="397">
+    <statement name="BEFOREPURCHASE_STACK">
+      <block type="controls_if" id="({%b##qgi{D4mqJ:6a/E">
+        <mutation else="1"></mutation>
+      </block>
+    </statement>
+  </block>
+  <block type="logic_compare" id="j`h(2C)?|}=9:_Z0/B$7" disabled="true" x="241" y="428">
+    <field name="OP">LT</field>
+    <value name="A">
+      <block type="variables_get" id="+-}2gklzD3jiLP5|vABe">
+        <field name="VAR" id="W/Q70(@w9?/qgHxY|gk{" variabletype="">macd_list</field>
+      </block>
+    </value>
+    <value name="B">
+      <block type="math_number" id="9CB.(M=|T@g[VFvjtS;?">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+  </block>
+  <block type="tick_analysis" id="b`%Qf`EDIBcK2.zEK{jc" x="731" y="418">
     <statement name="TICKANALYSIS_STACK">
       <block type="variables_set" id="Do{y6$PKw{h@lyaNG1E,">
         <field name="VAR" id="W/Q70(@w9?/qgHxY|gk{" variabletype="">macd_list</field>
@@ -346,31 +366,14 @@
       </block>
     </statement>
   </block>
-  <block type="before_purchase" id="i-CIx.(Onm4?ihxzA}Y]" x="-19" y="397">
-    <statement name="BEFOREPURCHASE_STACK">
-      <block type="controls_if" id="({%b##qgi{D4mqJ:6a/E">
-        <mutation else="1"></mutation>
-      </block>
-    </statement>
-  </block>
-  <block type="logic_compare" id="j`h(2C)?|}=9:_Z0/B$7" disabled="true" x="241" y="428">
-    <field name="OP">LT</field>
-    <value name="A">
-      <block type="variables_get" id="+-}2gklzD3jiLP5|vABe">
-        <field name="VAR" id="W/Q70(@w9?/qgHxY|gk{" variabletype="">macd_list</field>
-      </block>
-    </value>
-    <value name="B">
-      <block type="math_number" id="9CB.(M=|T@g[VFvjtS;?">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-  </block>
   <block type="purchase" id="Sj,7y(P/|7qB4cS,#T`5" disabled="true" x="242" y="476">
     <field name="PURCHASE_LIST">PUT</field>
   </block>
   <block type="purchase" id="dr88SW4;)7)B3mFVjJSa" disabled="true" x="242" y="515">
     <field name="PURCHASE_LIST">CALL</field>
+  </block>
+  <block type="lists_create_with" id="J~8b9)+h3#sG?^2QapMt" x="417" y="657">
+    <mutation items="3"></mutation>
   </block>
   <block type="after_purchase" id="D^Jz1^n=2vtZku1vBN@;" x="0" y="784">
     <statement name="AFTERPURCHASE_STACK">
